@@ -1,0 +1,14 @@
+# C/C++编译生成的文件
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+
+# CMake构建生成的文件
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+build/
