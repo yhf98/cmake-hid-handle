@@ -1,14 +1,9 @@
 
-#include <windows.h>
-#include <winioctl.h>
-#include <setupapi.h>
-#include <initguid.h>
 #include <stdio.h>
-#include <hidsdi.h>
-#include <tchar.h>
 #include <stdlib.h> 
 #include <time.h> 
 #include <hidapi.h>
+#include <string.h>
 
 #include "hmi_hid.h"
 
@@ -93,7 +88,7 @@ int hid_io_control(hid_device* hid_handle ,unsigned int cmd,const char *file_nam
 	printf("file_name=%s\n",file_name);
 
 
-	time_s = GetTickCount64();				
+	// time_s = GetTickCount64();				
 
 	m_packet.hid_ep_id    = HID_END_POINT;         //hid-endpoint
 	m_packet.start_byte   = TRAN_END_FRAME_HEDA; //start frame head byte
@@ -163,9 +158,9 @@ int hid_io_control(hid_device* hid_handle ,unsigned int cmd,const char *file_nam
 		printf("tran_index=%d,data_len=%d,\n", m_packet.tran_index,m_packet.tran_data_len);
 	}
 	
-    time_e = GetTickCount64();	
+    // time_e = GetTickCount64();	
 	
-	printf("file trans succeed,time=%lld ms.\n",time_e - time_s);
+	// printf("file trans succeed,time=%lld ms.\n",time_e - time_s);
 
 	return SYS_SUCCEED;
 
@@ -198,7 +193,7 @@ int hid_write_buff(  hid_device* hid_handle ,unsigned char *buff,const unsigned 
 	memset((unsigned char*)(&a_packet), 0, sizeof(ack_packet_t));
 
 
-	time_s = GetTickCount64();				
+	// time_s = GetTickCount64();				
 
 	m_packet.hid_ep_id    = HID_END_POINT;         //hid-endpoint
 	m_packet.start_byte   = TRAN_START_FRAME_HEDA; //start frame head byte
@@ -311,16 +306,16 @@ int hid_write_buff(  hid_device* hid_handle ,unsigned char *buff,const unsigned 
 		}
 	}
 
-    time_e = GetTickCount64();	
+    // time_e = GetTickCount64();	
 	
-	printf("file trans succeed,time=%lld ms.\n",time_e - time_s);
+	// printf("file trans succeed,time=%lld ms.\n",time_e - time_s);
 
 	return SYS_SUCCEED;
 
 }
 
 
-int hid_write_file(hid_device* hid_handle ,const char *full_path,const char *file_name,unsigned int file_type)
+int hid_write_file(hid_device* hid_handle ,const char *full_path,const char *file_name, unsigned int file_type)
 {
 	int ret = -1;
 	FILE * fp_png = NULL;
@@ -355,7 +350,7 @@ int hid_write_file(hid_device* hid_handle ,const char *full_path,const char *fil
 	fseek(fp_png,0,SEEK_SET);
 
 
-	time_s = GetTickCount64();				
+	// time_s = GetTickCount64();				
 
 	name_len = strlen(file_name);
 	
@@ -519,9 +514,9 @@ int hid_write_file(hid_device* hid_handle ,const char *full_path,const char *fil
 	fclose(fp_png);
 	fp_png = NULL;
 
-    time_e = GetTickCount64();	
+    // time_e = GetTickCount64();	
 	
-	printf("file trans succeed,time=%lld ms.\n",time_e - time_s);
+	// printf("file trans succeed,time=%lld ms.\n",time_e - time_s);
 
 	return SYS_SUCCEED;
 
