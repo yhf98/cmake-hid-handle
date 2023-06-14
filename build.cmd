@@ -1,0 +1,1 @@
+rmdir /s/q .\build && md build && cd .\build && cmake .. -DCMAKE_TOOLCHAIN_FILE=K:/vcpkg/scripts/buildsystems/vcpkg.cmake && cmake --build . --config release

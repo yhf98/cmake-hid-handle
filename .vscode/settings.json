@@ -14,5 +14,6 @@
     "vcpkg.target.hostTriplet": "x64-osx",
     "vcpkg.target.useStaticLib": false,
     "vcpkg.target.installDependencies": true,
-    "vcpkg.target.useManifest": false
+    "vcpkg.target.useManifest": false,
+    "C_Cpp.errorSquiggles": "enabled"
 }

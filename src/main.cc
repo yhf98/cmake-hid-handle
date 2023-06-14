@@ -1,8 +1,8 @@
 /*
  * @Author: yaohengfeng 1921934563@qq.com
  * @Date: 2023-01-13 10:45:03
- * @LastEditors: yaohengfeng 1921934563@qq.com
- * @LastEditTime: 2023-06-14 14:15:34
+ * @LastEditors: 姚恒锋 1921934563@qq.com
+ * @LastEditTime: 2023-06-14 15:59:28
  * @FilePath: \hid-handle\src\hidhandle.cc
  * @Description: hidhandle.cc
  */
@@ -12,7 +12,7 @@
 #include <time.h>
 #include <hidapi.h>
 
-#include "hmi/hmi_hid.h"
+#include "hmi_hid.h"
 
 // **************************************************************************************************************
 hid_device *hid_handle = NULL;
@@ -30,8 +30,9 @@ int hid_handle_init()
 	{
 		hid_init();
 		hid_handle = hid_open(0x264a, 0x232a, NULL);
-		
-		if (!hid_handle){
+
+		if (!hid_handle)
+		{
 			printf("\nFailed to open HID Device!\n");
 			return -1;
 		}
@@ -54,16 +55,14 @@ int hid_handle_init()
 	return 0;
 }
 
-int main(){
-	if(hid_handle_init() == -1) return -1;
+int main()
+{
+	if (hid_handle_init() == -1)
+		return -1;
 
 	printf("HID Driver opened!\n");
 
-	const char *full_path = "../output/product_sabbat_dual.abs";
-	const char *file_name = "product_sabbat_dual.abs";
-	unsigned int file_type = 1;
-	
-	hid_write_file(hid_handle, full_path, file_name, file_type);
-	
+	hid_write_file(hid_handle, "H:/cmake-hid-handle/output/product_sabbat_dual.abs", "product_sabbat_dual.abs", TRAN_TYPE_FIRMWARE);
+
 	return 0;
 }
