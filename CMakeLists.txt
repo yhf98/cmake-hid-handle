@@ -9,11 +9,11 @@ set(SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
 file(GLOB SRC_FILES ${SRC_DIR}/*)
 
 # 添加头文件目录
-# include_directories(${SRC_DIR}/hmi)
+include_directories(F:/cef-test/cmake-hid-handle/hidapi/hidapi)
 
 # 添加hidapi动态库
 
-find_package(hidapi CONFIG REQUIRED)
+# find_package(hidapi CONFIG REQUIRED)
 
 # 创建可执行文件
 add_executable(CmakeHidTest ${SRC_FILES})
@@ -21,10 +21,13 @@ add_executable(CmakeHidTest ${SRC_FILES})
 # 链接hidapi动态库
 # target_link_libraries(CmakeHidTest PRIVATE hidapi::darwin hidapi::hidapi hidapi::include)
 
-set( PROJECT_LINK_LIBS
-    PRIVATE 
-    hidapi::hidapi 
-    hidapi::winapi 
-    hidapi::include
-)
-target_link_libraries( CmakeHidTest ${PROJECT_LINK_LIBS} )
+# set( PROJECT_LINK_LIBS
+#     PRIVATE 
+#     hidapi::hidapi 
+#     hidapi::winapi 
+#     hidapi::include
+# )
+# target_link_libraries( CmakeHidTest ${PROJECT_LINK_LIBS} )
+
+link_directories(F:/cef-test/cmake-hid-handle/hidapi/windows)
+target_link_libraries(CmakeHidTest hidapi.dll)
