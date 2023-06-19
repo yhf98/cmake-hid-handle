@@ -1,8 +1,8 @@
 /*
  * @Author: yaohengfeng 1921934563@qq.com
  * @Date: 2023-01-13 10:45:03
- * @LastEditors: yaohengfneg 1921934563@qq.com
- * @LastEditTime: 2023-06-18 19:40:55
+ * @LastEditors: 姚恒锋 1921934563@qq.com
+ * @LastEditTime: 2023-06-19 10:15:04
  * @FilePath: \hid-handle\src\hidhandle.cc
  * @Description: hidhandle.cc
  */
@@ -12,7 +12,7 @@
 #include <time.h>
 #include <hidapi.h>
 
-#include "hmi_hid.h"
+#include "hmi/hmi_hid.h"
 
 // **************************************************************************************************************
 hid_device *hid_handle = NULL;
