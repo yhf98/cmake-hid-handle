@@ -1,11 +1,6 @@
 
-#include <windows.h>
-#include <winioctl.h>
-#include <setupapi.h>
-#include <initguid.h>
 #include <stdio.h>
-#include <hidsdi.h>
-#include <tchar.h>
+#include <string.h>
 #include <stdlib.h>
 #include <time.h>
 
@@ -36,6 +31,7 @@ int hmi_packet_file(hmi_page_t *page, const char *rootpath)
 
 	unsigned int file_start_code = FILE_START_CODE;
 	unsigned int file_end_code = FILE_END_CODE;
+	
 	char filename[1024] = {0};
 	unsigned int file_size = 0;
 	unsigned int file_name_len = 0;

@@ -9,10 +9,10 @@
 //********************************************************************
 
 
-#define  HMI_OBJ_TYPE_UNKNOWN  			(0)
-#define  HMI_OBJ_TYPE_LABEL  			(1)
-#define  HMI_OBJ_TYPE_IMG  				(2)
-#define  HMI_OBJ_TYPE_BROKEN  			(3)
+#define  HMI_OBJ_TYPE_UNKNOWN  			(0) // unknown
+#define  HMI_OBJ_TYPE_LABEL  			(1)	// 文本标签
+#define  HMI_OBJ_TYPE_IMG  				(2) // 图片 
+#define  HMI_OBJ_TYPE_BROKEN  			(3) // 折线图
 #define  HMI_OBJ_TYPE_CRC  				(4)
 #define  HMI_OBJ_TYPE_STRAIGHT  		(5)
 #define  HMI_OBJ_TYPE_PROGRESS_BAR  	(6)
